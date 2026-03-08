@@ -1,0 +1,84 @@
+{
+  "name": "cognitive-compass",
+  "displayName": "Cognitive Compass",
+  "version": "0.1.0",
+  "publisher": "cognitive-compass-team",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cognitiveCompass.explain",
+        "title": "Explain Current Code"
+      },
+      {
+        "command": "cognitiveCompass.showPanel",
+        "title": "Show Cognitive Compass"
+      },
+      {
+        "command": "cognitiveCompass.toggleTelemetry",
+        "title": "Toggle Telemetry"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cognitiveCompass",
+          "icon": "resources/icon.svg",
+          "title": "Cognitive Compass"
+        }
+      ]
+    },
+    "views": {
+      "cognitiveCompass": [
+        {
+          "type": "webview",
+          "id": "cognitiveCompassPanel",
+          "name": "Cognitive Compass"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode production",
+    "watch": "webpack --watch",
+    "package": "vsce package",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0",
+    "@cognitive-compass/ml-service": "*",
+    "@cognitive-compass/shared": "*",
+    "pino": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.160.0",
+    "@react-three/fiber": "^8.15.0",
+    "@react-three/drei": "^9.88.0",
+    "ws": "^8.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/three": "^0.160.0",
+    "@types/ws": "^8.0.0",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.0",
+    "css-loader": "^6.8.0",
+    "style-loader": "^3.3.0",
+    "@vscode/vsce": "^2.21.0"
+  }
+}
